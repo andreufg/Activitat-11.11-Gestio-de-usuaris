@@ -1,26 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="442.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <SplitPane dividerPositions="0.3979933110367893" prefHeight="400.0" prefWidth="600.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <Text fill="#363434" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insertar usuario" textAlignment="CENTER" wrappingWidth="235.0">
-                     <font>
-                        <Font name="System Bold Italic" size="21.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-        </items>
-      </SplitPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="67.0" prefWidth="459.0">
+         <children>
+            <Text fill="#363434" layoutX="110.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insertar usuario" textAlignment="CENTER" wrappingWidth="235.0">
+               <font>
+                  <Font name="System Bold Italic" size="21.0" />
+               </font>
+            </Text>
+            <Text layoutX="82.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insertar un nuevo usuario en la base de datos" wrappingWidth="331.0" />
+         </children>
+      </AnchorPane>
+    <AnchorPane layoutY="51.0" minHeight="0.0" minWidth="0.0" prefHeight="387.0" prefWidth="490.0">
+         <children>
+            <Text layoutX="83.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" wrappingWidth="73.7294921875" AnchorPane.leftAnchor="83.0" AnchorPane.topAnchor="24.93310546875">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Text layoutX="83.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos" wrappingWidth="73.7294921875" AnchorPane.leftAnchor="83.0" AnchorPane.topAnchor="69.93310546875">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Text layoutX="95.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" wrappingWidth="73.7294921875" AnchorPane.leftAnchor="95.0" AnchorPane.topAnchor="114.93310546875">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Text layoutX="83.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="telefono" wrappingWidth="73.7294921875" AnchorPane.leftAnchor="83.0" AnchorPane.topAnchor="159.93310546875">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Text layoutX="83.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="birthday" wrappingWidth="73.7294921875" AnchorPane.leftAnchor="83.0" AnchorPane.topAnchor="204.93310546875">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Text layoutX="50.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo Postal" wrappingWidth="106.7294921875" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="249.93310546875">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Text layoutX="83.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="73.7294921875" AnchorPane.leftAnchor="83.0" AnchorPane.topAnchor="294.93310546875">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <Text layoutX="40.0" layoutY="148.06689453125" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir Password" wrappingWidth="130.7294921875" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="335.0">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Text>
+            <TextField fx:id="nombre" layoutX="143.0" layoutY="21.0" opacity="0.49" text="Andreu" AnchorPane.leftAnchor="180.0" />
+            <TextField fx:id="apellidos" layoutX="143.0" layoutY="66.0" opacity="0.49" text="Francés" AnchorPane.leftAnchor="180.0" />
+            <TextField fx:id="email" layoutX="143.0" layoutY="111.0" opacity="0.49" text="andreu@gmail.com" AnchorPane.leftAnchor="180.0" />
+            <TextField fx:id="telefono" layoutX="143.0" layoutY="156.0" opacity="0.49" text="621895452" AnchorPane.leftAnchor="180.0" />
+            <DatePicker fx:id="birthday" layoutX="146.0" layoutY="201.0" promptText="05/11/2021" AnchorPane.leftAnchor="180.0" />
+            <TextField fx:id="codigoPostal" layoutX="143.0" layoutY="246.0" opacity="0.49" text="621895452" AnchorPane.leftAnchor="180.0" />
+            <TextField fx:id="password" layoutX="170.0" layoutY="291.0" opacity="0.49" text="0000" AnchorPane.leftAnchor="180.0" />
+            <TextField fx:id="repetirPassword" layoutX="170.0" layoutY="331.0" opacity="0.49" text="0000" AnchorPane.leftAnchor="180.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
