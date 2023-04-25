@@ -1,5 +1,6 @@
 package es.progcipfpbatoi;
 
+import es.progcipfpbatoi.controladores.ChangeScene;
 import es.progcipfpbatoi.controladores.UsuarioController;
 import es.progcipfpbatoi.modelo.repositorios.UsuariosRepository;
 import javafx.application.Application;
@@ -20,20 +21,15 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/vista/list_item.fxml"));
-
+        // Creamos la capa de acceso de a datos
+        UsuariosRepository usuariosRepository = new UsuariosRepository();
         UsuarioController usuarioController = new UsuarioController();
+        ChangeScene.change(stage, usuarioController, "/vista/list_item.fxml");
 
-        loader.setController(usuarioController);
-
-        AnchorPane rootLayout = loader.load();
-
-        stage.setScene(new Scene(rootLayout, 400, 500));
-        stage.setResizable(false);
-        stage.show();
+       /* Tarea tarea = new Tarea(6, "Sacar la basura", Categoria.HOGAR);
+        TareaDetailController tareaDetailController = new TareaDetailController(tarea, inMemoryTareaRepository);
+        ChangeScene.change(stage, tareaDetailController, "/vistas/tarea_detail.fxml");*/
     }
-
 
     public static void main(String[] args) {
         launch();
