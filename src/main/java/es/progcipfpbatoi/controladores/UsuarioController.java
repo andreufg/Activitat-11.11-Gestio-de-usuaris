@@ -2,6 +2,8 @@ package es.progcipfpbatoi.controladores;
 
 import es.progcipfpbatoi.modelo.entidades.Usuario;
 import es.progcipfpbatoi.modelo.repositorios.UsuariosRepository;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class UsuarioController implements Initializable {
-    private ListView<Usuario> lista ;
+    private FormularioController formularioController;
     @FXML
     private TextField nombre;
 
@@ -29,6 +31,9 @@ public class UsuarioController implements Initializable {
 
     @FXML
     private TextField telefono;
+
+    @FXML
+    private TextField dni;
 
     @FXML
     private DatePicker birthday;
@@ -44,9 +49,9 @@ public class UsuarioController implements Initializable {
 
     @FXML
     private void anyadirLista(){
-        Usuario usuario = new Usuario(nombre.getText(),apellidos.getText(),email.getText(),telefono.getText(),birthday,codigoPostal.getText(),password.getText(),repetirPassword.getText());
-        usuariosRepository.save(usuario);
+        Usuario usuario = new Usuario(nombre.getText(),apellidos.getText(),email.getText(),dni.getText(),telefono.getText(),birthday,codigoPostal.getText(),password.getText(),repetirPassword.getText());
         if (usuariosRepository.save(usuario)){
+            formularioController.save(usuario);
             nombre.setText("");
             apellidos.setText("");
             email.setText("");
@@ -57,10 +62,12 @@ public class UsuarioController implements Initializable {
         }
     }
 
+
     UsuariosRepository usuariosRepository;
 
     public UsuarioController(UsuariosRepository usuariosRepository) {
         this.usuariosRepository = usuariosRepository;
+        this.formularioController = new FormularioController(this, "/vista/list_item.fxml",usuariosRepository);
     }
 
     @FXML
@@ -73,7 +80,6 @@ public class UsuarioController implements Initializable {
         }*/
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FormularioController formularioController = new FormularioController(this, "/vista/list_item.fxml");
             ChangeScene.change(stage, formularioController, "/vista/formulario.fxml");
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -82,7 +88,6 @@ public class UsuarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
 }

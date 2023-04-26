@@ -9,6 +9,8 @@ import java.util.ArrayList;
 public class InmemoryRepository implements UsuariosRepository{
     private ArrayList<Usuario> usuarios;
 
+
+
     public InmemoryRepository() {
         this.usuarios = new ArrayList<>();
         init();
@@ -17,10 +19,10 @@ public class InmemoryRepository implements UsuariosRepository{
     private void init() {
         LocalDate birthday = LocalDate.now();
         DatePicker fecha = new DatePicker(birthday);
-        this.usuarios.add(new Usuario("Ada", "Lovelace","ada@gmail.com","651845665",fecha,"03802","1234","1234"));
-        this.usuarios.add(new Usuario("Grace", "Hopper","grace@gmail.com","698415222",fecha,"03802","1234","1234"));
-        this.usuarios.add(new Usuario("Margaret", "Hamilton","margaret@gmail.com","632895412",fecha,"03802","1234","1234"));
-        this.usuarios.add(new Usuario("Joan", "Clarke","joan@gmail.com","674318492",fecha,"03802","1234","1234"));
+        this.usuarios.add(new Usuario("Ada", "Lovelace","ada@gmail.com","214585419C","651845665",fecha,"03802","1234","1234"));
+        this.usuarios.add(new Usuario("Grace", "Hopper","grace@gmail.com","214585726F","698415222",fecha,"03802","1234","1234"));
+        this.usuarios.add(new Usuario("Margaret", "Hamilton","margaret@gmail.com","2145857921L","632895412",fecha,"03802","1234","1234"));
+        this.usuarios.add(new Usuario("Joan", "Clarke","joan@gmail.com","224585726K","674318492",fecha,"03802","1234","1234"));
     }
 
     @Override
