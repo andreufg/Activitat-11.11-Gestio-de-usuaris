@@ -6,18 +6,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.chrono.Chronology;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class UsuarioController implements Initializable {
-
+    private ListView<Usuario> lista ;
     @FXML
     private TextField nombre;
 
@@ -37,13 +37,31 @@ public class UsuarioController implements Initializable {
     private TextField codigoPostal;
 
     @FXML
-    private TextField password;
+    private PasswordField password;
 
     @FXML
-    private TextField repetirPassword;
+    private PasswordField repetirPassword;
 
+    @FXML
+    private void anyadirLista(){
+        Usuario usuario = new Usuario(nombre.getText(),apellidos.getText(),email.getText(),telefono.getText(),birthday,codigoPostal.getText(),password.getText(),repetirPassword.getText());
+        usuariosRepository.save(usuario);
+        if (usuariosRepository.save(usuario)){
+            nombre.setText("");
+            apellidos.setText("");
+            email.setText("");
+            telefono.setText("");
+            codigoPostal.setText("");
+            password.setText("");
+            repetirPassword.setText("");
+        }
+    }
 
+    UsuariosRepository usuariosRepository;
 
+    public UsuarioController(UsuariosRepository usuariosRepository) {
+        this.usuariosRepository = usuariosRepository;
+    }
 
     @FXML
     private void handleSelectedItem(ActionEvent event) {

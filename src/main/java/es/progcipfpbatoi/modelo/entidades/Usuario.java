@@ -7,21 +7,26 @@ import java.time.LocalDate;
 public class Usuario {
     private String nombre;
     private String apellidos;
+    private String nombreCompleto;
     private String email;
-    private int telefono;
+    private String telefono;
     private DatePicker birthday;
-    private int codigoPostal;
-    private int password;
-    private int repetirPassword;
+    private String codigoPostal;
+    private String password;
+    private String repetirPassword;
 
-    public Usuario(String nombre, String apellidos, String email, int telefono, DatePicker birthday, int codigoPostal, int password, int repetirPassword) {
+    public Usuario(String nombre, String apellidos, String email, String telefono, DatePicker birthday, String codigoPostal, String password, String repetirPassword) {
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.nombreCompleto = nombre.concat(" " + apellidos);
         this.email = email;
         this.telefono = telefono;
         this.birthday = birthday;
         this.codigoPostal = codigoPostal;
         this.password = password;
         this.repetirPassword = repetirPassword;
+    }
+    public boolean empiezaPor(String text) {
+        return this.nombreCompleto.startsWith(text);
     }
 }
