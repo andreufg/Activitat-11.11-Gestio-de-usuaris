@@ -50,9 +50,9 @@ public class FormularioController implements Initializable {
             e.printStackTrace();
         }
     }
-    public void save(Usuario usuario){
+   /* public void save(Usuario usuario){
         usuarioListView.getItems().add(usuario);
-    }
+    }*/
 
     private ObservableList<Usuario> getData() {
         return FXCollections.observableArrayList(usuariosRepository.findAll());

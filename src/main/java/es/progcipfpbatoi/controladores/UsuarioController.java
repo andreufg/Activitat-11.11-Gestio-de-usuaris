@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class UsuarioController implements Initializable {
-    private FormularioController formularioController;
     @FXML
     private TextField nombre;
 
@@ -50,8 +49,7 @@ public class UsuarioController implements Initializable {
     @FXML
     private void anyadirLista(){
         Usuario usuario = new Usuario(nombre.getText(),apellidos.getText(),email.getText(),dni.getText(),telefono.getText(),birthday,codigoPostal.getText(),password.getText(),repetirPassword.getText());
-        if (usuarioCorrecto()&&usuariosRepository.save(usuario)){
-            formularioController.save(usuario);
+        if (usuarioCorrecto() && usuariosRepository.save(usuario)){
             nombre.setText("");
             apellidos.setText("");
             email.setText("");
@@ -93,11 +91,11 @@ public class UsuarioController implements Initializable {
     }
 
 
-    UsuariosRepository usuariosRepository;
+    private UsuariosRepository usuariosRepository;
 
     public UsuarioController(UsuariosRepository usuariosRepository) {
         this.usuariosRepository = usuariosRepository;
-        this.formularioController = new FormularioController(this, "/vista/list_item.fxml",usuariosRepository);
+
     }
 
     @FXML
@@ -110,6 +108,7 @@ public class UsuarioController implements Initializable {
         }*/
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FormularioController formularioController = new FormularioController(this, "/vista/list_item.fxml",usuariosRepository);
             ChangeScene.change(stage, formularioController, "/vista/formulario.fxml");
         } catch (IOException ex) {
             ex.printStackTrace();
