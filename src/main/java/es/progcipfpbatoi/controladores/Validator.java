@@ -6,9 +6,11 @@ public class Validator {
 
         public final static String DNI_REGEXP = "[0-9]{7,8}[A-Z a-z]";
 
-        public final static String CODIGO_POSTAL_REGEXP = "o(([1-4][0-9][0-9][0-9][0-9])|(0(?=[1-9][0-9][0-9][0-9]))|(5(?=[0-2][0-9][0-9][0-9])))";
-         public final static String TELEFONO_REGEXP = "^(0034|\\\\+34|34)[67]\\\\d{7}$";
-         public final static String MAIL_REGEXP = "^[a-zA-Z0-9]+([\\\\.-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([\\\\.-]?[a-zA-Z0-9]+)*\\\\.[a-zA-Z]{2,}$";
+        public final static String CODIGO_POSTAL_REGEXP = "^(?:0?[1-9]|[1-4]\\d|5[0-2])\\d{3}$";
+         public final static String TELEFONO_REGEXP = "(\\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}";
+         public final static String MAIL_REGEXP = "^(.+)@(.+)$";
+         public final static String NOMBRE_REGEXP = "[a-zA-Z]{5,20}";
+         public final static String CONTRASENYA_REGEXP = "^(?=.*\\d)(?=.*[\\u0021-\\u002b\\u003c-\\u0040])(?=.*[A-Z])(?=.*[a-z])\\S{5,20}$";
 
         public static boolean isValidateDate(String date) {
 
@@ -35,10 +37,20 @@ public class Validator {
         }
         public static boolean isValidCadenaTexto(String cadenaTexto) {
 
-            return cadenaTexto.matches(String.valueOf(cadenaTexto.length()>=5 && cadenaTexto.length()<=20));
+            return cadenaTexto.matches(NOMBRE_REGEXP);
 
         }
-        public static boolean isValidCadenaTexto(int numero) {
+        public static boolean isValidContrasenya(String contrasenya) {
+
+        return contrasenya.matches(CONTRASENYA_REGEXP);
+
+        }
+        public static boolean isValidRepetirContrasenya(String contrasenya1,String contrasenya2) {
+
+        return contrasenya1.equals(contrasenya2);
+
+         }
+        public static boolean isValidCadenaNumeros(int numero) {
 
             return numero>4&&numero<100;
 

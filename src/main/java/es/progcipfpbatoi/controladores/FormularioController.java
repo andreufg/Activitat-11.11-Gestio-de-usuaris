@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class FormularioController implements Initializable {
 
     @FXML
-    public ListView<Usuario> usuarioListView;
+    private ListView<Usuario> usuarioListView;
     private Initializable controladorPadre;
     @FXML
     private TextField buscar;

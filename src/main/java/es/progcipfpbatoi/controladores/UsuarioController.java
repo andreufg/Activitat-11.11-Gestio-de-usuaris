@@ -50,7 +50,7 @@ public class UsuarioController implements Initializable {
     @FXML
     private void anyadirLista(){
         Usuario usuario = new Usuario(nombre.getText(),apellidos.getText(),email.getText(),dni.getText(),telefono.getText(),birthday,codigoPostal.getText(),password.getText(),repetirPassword.getText());
-        if (usuariosRepository.save(usuario)){
+        if (usuarioCorrecto()&&usuariosRepository.save(usuario)){
             formularioController.save(usuario);
             nombre.setText("");
             apellidos.setText("");
@@ -59,7 +59,37 @@ public class UsuarioController implements Initializable {
             codigoPostal.setText("");
             password.setText("");
             repetirPassword.setText("");
+        }else {
+            System.out.println("Usuario incorrecto");
         }
+    }
+    private boolean usuarioCorrecto(){
+        if (!Validator.isValidCadenaTexto(nombre.getText())){
+            System.out.println("Pon un nombre correcto");
+            return false;
+        } else if (!Validator.isValidCadenaTexto(apellidos.getText())) {
+            System.out.println("Pon un apellido correcto, no pongas acentos");
+            return false;
+        }else if (!Validator.isValidCorreo(email.getText())){
+            System.out.println("Pon un correo correcto");
+            return false;
+        }else if (!Validator.isValidTelefono(telefono.getText())){
+            System.out.println("Pon un telefono correcto");
+            return false;
+        }else if (!Validator.isValidCodigoPostal(codigoPostal.getText())) {
+            System.out.println("Pon un codigo postal correcto");
+            return false;
+        }else if (!Validator.isValidDNI(dni.getText())) {
+            System.out.println("Pon un dni correcto");
+            return false;
+        }else if (!Validator.isValidContrasenya(password.getText())) {
+            System.out.println("Pon una contraseña correcta");
+            return false;
+        }else if (!Validator.isValidRepetirContrasenya(password.getText(),repetirPassword.getText())){
+            System.out.println("Las contraseñas no coinciden");
+            return false;
+        }
+        return true;
     }
 
 
